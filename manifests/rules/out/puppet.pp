@@ -3,7 +3,7 @@ class firewall::rules::out::puppet(
   Variant[String,Array[String,1]]
     $puppetserver,
   Integer
-    $puppetserver_port,
+    $puppetserver_port = 8140,
 ) {
   include firewall
   if $firewall::use_nftables {
