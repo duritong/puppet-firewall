@@ -1,7 +1,9 @@
 # manage puppet outgoing rules
 class firewall::rules::out::puppet(
-  String $puppetserver,
-  Integer $puppetserver_port,
+  Variant[String,Array[String,1]
+    $puppetserver,
+  Integer
+    $puppetserver_port,
 ) {
   include firewall
   if $firewall::use_nftables {
