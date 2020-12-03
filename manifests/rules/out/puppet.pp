@@ -1,6 +1,6 @@
 # manage puppet outgoing rules
 class firewall::rules::out::puppet(
-  Variant[String,Array[String,1]]
+  Array[Stdlib::IP::Address]
     $puppetserver,
   Integer
     $puppetserver_port = 8140,
