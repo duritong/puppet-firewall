@@ -9,13 +9,13 @@ class firewall::rules::munin(
   if $firewall::use_nftables {
     if !empty($collector) {
       nftables::rule {
-        'default_in-munin-ipv4':
+        'default_in-muninipv4':
           content => "ip saddr {${collector.join(',')}} tcp dport ${port} accept",
       }
     }
     if !empty($collector6) {
       nftables::rule {
-        'default_in-munin-ipv6':
+        'default_in-muninipv6':
           content => "ip6 saddr {${collector6.join(',')}} tcp dport ${port} accept",
       }
     }
