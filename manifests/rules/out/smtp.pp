@@ -1,3 +1,4 @@
+# outgoing smtp
 class firewall::rules::out::smtp {
   include firewall
   if $firewall::use_nftables {
