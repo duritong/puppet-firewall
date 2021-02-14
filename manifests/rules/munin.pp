@@ -1,10 +1,10 @@
 # dispatch munin rules
-class firewall::rules::munin(
+class firewall::rules::munin (
   Array[Stdlib::IP::Address::V4] $collector = [],
   Array[Stdlib::IP::Address::V6] $collector6 = [],
   Stdlib::Port $port = 4949,
-  Enum['loc','net'] $collector_source = 'net',
-){
+  Array[Enum['loc','net']] $collector_source = ['net'],
+) {
   include firewall
   if $firewall::use_nftables {
     if !empty($collector) {
@@ -20,7 +20,7 @@ class firewall::rules::munin(
       }
     }
   } else {
-    class{'shorewall::rules::munin':
+    class { 'shorewall::rules::munin':
       munin_port       => $port,
       munin_collector  => $collector,
       munin_collector6 => $collector6,
