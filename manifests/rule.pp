@@ -2,7 +2,7 @@
 define firewall::rule (
   Nftables::SimpleRuleName $rule_name = $title,
   Nftables::Port $port,
-  Enum['tcp','udp'] $proto,
+  Enum['tcp','udp'] $proto = 'tcp',
 ) {
   include firewall
   if $firewall::use_nftables {
