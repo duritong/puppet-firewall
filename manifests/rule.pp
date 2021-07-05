@@ -1,6 +1,6 @@
 # manage incoming rule
 define firewall::rule (
-  Nftables::RuleName $rule_name = $title,
+  Nftables::SimpleRuleName $rule_name = $title,
   Nftables::Port $port,
   Enum['tcp','udp'] $proto,
 ) {
